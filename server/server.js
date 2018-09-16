@@ -15,15 +15,21 @@ var io = socketIO(server);
 io.on('connection', (socket) => {
     console.log('New user connected.');
 
-    socket.emit('newMessage', {
-        from: 'Jordan',
-        text: 'Hi',
-        createdAt: 12478
-    });
+    // socket.emit('newMessage', {
+    //     from: 'Jordan',
+    //     text: 'Hi',
+    //     createdAt: 12478
+    // });
 
     // listening to createMessage event emitted by client
     socket.on('createMessage', (message) => {
         console.log('createMessage: ', message);    
+
+        io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
     });
 
     socket.on('disconnect', () => {
