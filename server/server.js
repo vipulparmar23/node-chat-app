@@ -21,10 +21,25 @@ io.on('connection', (socket) => {
     //     createdAt: 12478
     // });
 
+    // Welcome message to user from admin
+    socket.emit('newMessage', {
+        from: 'admin',
+        text: 'Welcome to chat app, buddy!!',
+        createdAt: new Date().getTime()
+    })
+
+    // Notifications to all users about a new user joining chat, using broadcast to exclude user itself
+    socket.broadcast.emit('newMessage',{
+        from: 'Admin',
+        text: 'New user has joined chat',
+        createdAt: new Date().getTime()
+    });
+
     // listening to createMessage event emitted by client
     socket.on('createMessage', (message) => {
-        console.log('createMessage: ', message);    
+        console.log('createMessage: ', message);  
 
+        // This function sends the message to everyone including ownself
         io.emit('newMessage', {
             from: message.from,
             text: message.text,
