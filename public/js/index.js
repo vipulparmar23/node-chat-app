@@ -12,7 +12,7 @@ socket.on('disconnect', function () {
 // Listening a newMessage event from server
 socket.on('newMessage', function (message) {
     console.log('newMessage: ', message);
-    
+
     // The message data arrives in message variable
 
     var li = $('<li></li>');
@@ -30,6 +30,23 @@ $(document).ready(function () {
             text: $('[name = message]').val()
         }, function () {
 
+        });
+    });
+
+    var locationButton = $('#location-button');
+
+    locationButton.on('click', function() {
+        if(!navigator.geolocation){
+            return alert('Geolocation is not supported by browser');
+        }
+
+        navigator.geolocation.getCurrentPosition(function(position){
+            socket.emit('createLocationMessage', {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            });
+        }, function(){
+            alert('Unable to get location');
         });
     });
 });
