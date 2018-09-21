@@ -35,18 +35,28 @@ $(document).ready(function () {
 
     var locationButton = $('#location-button');
 
-    locationButton.on('click', function() {
-        if(!navigator.geolocation){
+    locationButton.on('click', function () {
+        if (!navigator.geolocation) {
             return alert('Geolocation is not supported by browser');
         }
 
-        navigator.geolocation.getCurrentPosition(function(position){
+        navigator.geolocation.getCurrentPosition(function (position) {
             socket.emit('createLocationMessage', {
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude
             });
-        }, function(){
+        }, function () {
             alert('Unable to get location');
         });
     });
+});
+
+socket.on('newLocationMessage', function (message) {
+    console.log('Working so far');
+    var li = $('<li></li>');
+    var a = $('<a target = "_blank">My Current Location</a>');
+    li.text(`${message.from}: `);
+    a.attr('href', message.url);
+    li.append(a);
+    $('#messages').append(li);
 });
