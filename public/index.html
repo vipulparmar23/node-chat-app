@@ -4,29 +4,44 @@
 <head>
     <meta charset="utf-8" />
     <title>Chat App</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <p>Welcome to the chat app</p>
-    <script src="js/libs/jquery-3.3.1.min.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/index.js"></script>
 
-    <ol id="messages"></ol>
+    <div class="container-fluid" style="height: 100vh;">
+        <div class="row">
+            <div class="col-sm-2 section left">
+                <h3 class="text-center text-white">PEOPLE</h3>
+                <div class="users"></div>
+            </div>
+            <div class="col-sm-8 section">
+                <div class="container">
+                    <script src="js/libs/jquery-3.3.1.min.js"></script>
+                    <script src="/socket.io/socket.io.js"></script>
+                    <script src="js/index.js"></script>
 
-    <form id="message-form">
-        <input type="text" placeholder="Message" name="message" />
-        <input type="submit" value="Send" id="my-submit" />
-    </form>
+                    <!-- <div class="bottom-main"> -->
+                    <ol id="messages"></ol>
 
-    <button id = "location-button">Send Location</button>
-
-    <!-- <script type="text/javascript">
-        $("#message-form").submit(function(){
-            alert('Fucking handler is called');
-        });
-    </script> -->
-
+                    <!-- <div class="footer" style="margin-left: 280px;"> -->
+                    <footer class="footer">
+                        <form id="message-form">
+                            <input type="text" placeholder="Message" class="form-elements" name="message" />
+                            <!-- <input type="submit" value="Send" id="my-submit" class="btn btn-primary" /> -->
+                            <button class="btn btn-primary form-elements" id="send-button">Send</button>
+                            &nbsp;
+                        </form>
+                        <button id="location-button" class="btn btn-primary form-elements">Send
+                            Location</button>
+                    </footer>
+                    <!-- <button id="location-button" style="float: right;">Send Location</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
 </body>
 
 </html>
