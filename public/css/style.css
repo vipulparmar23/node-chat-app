@@ -77,6 +77,7 @@ html, body{
     bottom: 15;
     position: fixed;
     display: flex;   
+    background-color: lightgray;
 }
 
 .footer input{
@@ -85,6 +86,7 @@ html, body{
 
 .form-elements{
     height: 40px;
+    margin: 5px;
 }
 
 #messages{
