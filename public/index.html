@@ -6,12 +6,14 @@
     <title>Chat App</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        $('.left').height(Math.max($('.left').height(), $('.section').height()));
+    </script>
 </head>
 
-<body>
-
-    <div class="container-fluid" style="height: 100vh;">
-        <div class="row">
+<body class="chat">
+    <div class="container-fluid" style="height: 100vh;" id="container">
+        <div class="row parent">
             <div class="col-sm-2 section left">
                 <h3 class="text-center text-white">PEOPLE</h3>
                 <div class="users"></div>
@@ -21,15 +23,17 @@
                     <script src="js/libs/jquery-3.3.1.min.js"></script>
                     <script src="js/libs/moment.js"></script>
                     <script src="/socket.io/socket.io.js"></script>
+                    <script src="js/libs/mustache.js"></script>
                     <script src="js/index.js"></script>
 
                     <!-- <div class="bottom-main"> -->
                     <ol id="messages"></ol>
 
                     <!-- <div class="footer" style="margin-left: 280px;"> -->
-                    <footer class="footer">
+                    <footer class="footer" style="bottom: 0px;">
                         <form id="message-form">
-                            <input type="text" placeholder="Message" class="form-elements" name="message" autocomplete="off" autofocus = "off"/>
+                            <input type="text" placeholder="Message" class="form-elements" name="message" autocomplete="off"
+                                autofocus="off" />
                             <!-- <input type="submit" value="Send" id="my-submit" class="btn btn-primary" /> -->
                             <button class="btn btn-primary form-elements" id="send-button">Send</button>
                             &nbsp;
@@ -38,11 +42,37 @@
                             Location</button>
                     </footer>
                     <!-- <button id="location-button" style="float: right;">Send Location</button> -->
+
+                    <script id="message-template" type="text/template">
+                        <li class="message">
+                            <div class = "message-title">
+                                <h5 style = "font-size: 17px;">{{from}}</h5>
+                                <span>{{createdAt}}</span>
+                            </div>
+                            <div class="message-body">
+                                <p>{{text}}</p>
+                            </div>
+                        </li>
+                    </script>
+
+                    <script id="location-template" type="text/template">
+                        <li class="message">
+                            <div class="message-title">
+                                <h5 style = "font-size: 17px;">{{from}}</h5>
+                                <span>{{createdAt}}</span>
+                            </div>
+                            <div class="message-body">
+                                <p>
+                                    <a href="{{url}}" target = "_blank">My Current Location</a>
+                                </p>
+                            </div>
+                        </li>
+                    </script>
                 </div>
             </div>
         </div>
     </div>
     <!-- </div> -->
-</body>
 
 </html>
+</body>
