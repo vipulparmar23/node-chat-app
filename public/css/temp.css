@@ -150,3 +150,181 @@ button:disabled{
         .chat__footer button{
             margin-right:0
         }}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* * {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    display: table;
+    margin: 0;
+  }
+
+.footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+}
+
+/* *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight:300;font-size:.95rem
+} */
+/* 
+.section{
+    height: 100%;
+}
+
+.bottom-main{
+    display:flex;
+    flex-direction:column;
+}
+
+#location-button{
+    height: 55px;
+}
+#send-button{
+    height: 55px;
+}
+
+.footer input{    
+    padding: 11px;
+    width: 700px;;
+}
+#messages{
+    list-style-type: none;
+} */ 
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    position: relative;
+}
+
+.section{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    
+}
+
+.left{
+    background-color: cornflowerblue;
+    /* overflow-y: scroll; */
+    overflow: hidden;
+    /* height: 100%; */
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+    height: 100%;
+    /* display: block; */
+    /* position: absolute; */
+    /* min-height: 100vh; */
+}
+
+#messages{
+    list-style-type: none;
+}
+
+.message{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+}
+ 
+.message-title{
+    display: flex;
+} 
+
+.message-title h5{
+	font-weight: 600;
+    margin-right: 10px;
+}
+
+.message-title span{
+    color: rgb(167, 161, 161);
+}
+
+.message-title span{
+    color:#999}@media (max-width:600px){*
+        {font-size:1rem}
+        .chat__sidebar{
+            display:none
+        }
+        .chat__footer{
+            flex-direction:column
+        }
+        .chat__footer form{
+            margin-bottom:10px
+        }
+        .chat__footer button{
+            margin-right:0
+        }}  
+
+.message-body{
+    margin-bottom: 5px;
+    margin-top: -5px;
+}
+
+.footer{
+    bottom: 15;
+    position: fixed;
+    display: flex;   
+    background-color: lightgray;
+    flex-shrink: 0;
+}
+
+.footer input{
+    width: 700px;
+}
+
+.form-elements{
+    height: 40px;
+    margin: 5px;
+}
+
+/* .parent, .container-fluid{
+    height: 100%;
+    min-height: 100%;
+    overflow: auto;
+} */
